@@ -9,11 +9,11 @@ use std::process::exit;
 
 mod time;
 
-const INFO_COLOR: &str = "\x1b[1;34m";
-const SUCCESS_COLOR: &str = "\x1b[1;32m";
-const WARNING_COLOR: &str = "\x1b[1;33m";
-const ERROR_COLOR: &str = "\x1b[1;31m";
-const DEBUG_COLOR: &str = "\x1b[1;37m";
+const INFO_COLOR: &str = "\x1b[0;34m";
+const SUCCESS_COLOR: &str = "\x1b[0;32m";
+const WARNING_COLOR: &str = "\x1b[0;33m";
+const ERROR_COLOR: &str = "\x1b[0;31m";
+const DEBUG_COLOR: &str = "\x1b[0;35m";
 const ESCAPE: &str = "\x1b[0m";
 const DELIMITER: &str = "\x1b[1;1m";
 const INFO_TEXT: &str = "INFO";
@@ -45,7 +45,7 @@ pub struct Logger {
 impl Logger {
     fn _timestamp(&self) -> String {
         // let now = SystemTime::now();
-        let time = time::fmt("%H:%M:%S");
+        let time = time::fmt("%Y-%m-%dT%H:%M:%S");
         time
     }
     
@@ -97,20 +97,18 @@ impl Logger {
                 .write(true)
                 .create_new(true)
                 .open(&path).unwrap();
-            let log_message = format!("[{}] [{}] {}\n", 
-                title, 
+            let log_message = format!("[{}] {} {}\n", 
                 self._timestamp(),
+                title, 
                 msg);
             write!(&mut logfile, "{}", log_message).unwrap();
         }
         
         if self._is_stdout() {
-            println!("{}[{}]{} {}[{}]{} {}",
+            println!("{} {}{}{} {}",
+                self._timestamp(),
                 DELIMITER,
                 format!("{}{}{}{}{}", ESCAPE, color, title, ESCAPE, DELIMITER),
-                ESCAPE,
-                DELIMITER,
-                format!("{}{}{}{}{}", ESCAPE, color, self._timestamp(), ESCAPE, DELIMITER),
                 ESCAPE,
                 msg
             );
