@@ -6,8 +6,10 @@ use std::path::{Path, PathBuf};
 use std::fs::OpenOptions;
 use std::io::Write;
 use std::process::exit;
+use chrono;
+use chrono::{Timelike, Datelike};
 
-mod time;
+// mod time;
 
 const INFO_COLOR: &str = "\x1b[0;34m";
 const SUCCESS_COLOR: &str = "\x1b[0;32m";
@@ -45,17 +47,24 @@ pub struct Logger {
 impl Logger {
     fn _timestamp(&self) -> String {
         // let now = SystemTime::now();
-        let time = time::fmt("%Y-%m-%dT%H:%M:%S");
-        time
+        // let time = time::fmt("%Y-%m-%dT%H:%M:%S");
+        let now = chrono::offset::Local::now();
+        format!("{}-{}-{} {}:{}:{}",
+          now.year(),
+          now.month(),
+          now.day(),
+          now.hour(),
+          now.minute(),
+          now.second())
     }
-    
+
     fn _is_logfile(&mut self) -> bool {
         match &self.file {
             LogfileType::FileHandler(_) => true,
             _ => false
         }
     }
-    
+
     fn _is_stdout(&mut self) -> bool {
         match &self.file {
             LogfileType::FileHandler(_) => {
@@ -89,7 +98,7 @@ impl Logger {
         let path = Path::new(&path_str);
         self.file = LogfileType::FileHandler(path.to_path_buf());
     }
-    
+
     fn print(&mut self, title: &str, color: &str, msg: &str) {
         if self._is_logfile() {
             let path = self.file.get_path().unwrap();
@@ -97,13 +106,13 @@ impl Logger {
                 .write(true)
                 .create_new(true)
                 .open(&path).unwrap();
-            let log_message = format!("[{}] {} {}\n", 
+            let log_message = format!("[{}] {} {}\n",
                 self._timestamp(),
-                title, 
+                title,
                 msg);
             write!(&mut logfile, "{}", log_message).unwrap();
         }
-        
+
         if self._is_stdout() {
             println!("{} {}{}{} {}",
                 self._timestamp(),

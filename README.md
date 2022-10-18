@@ -1,6 +1,6 @@
 # elara-log
 
-A minimalist and zero-dependency logger for Project Elära's libraries and applications.
+A minimalist and lightweight logger for Project Elära's libraries and applications.
 
 See the [example](examples/) for a usage overview.
 
