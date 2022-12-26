@@ -1,13 +1,13 @@
-use elara_log::Logger;
+use elara_log::prelude::*;
 
 fn main() {
-    let mut log = Logger::new();
+    Logger::new().init().unwrap();
     
-    log.info("Some info");
-    log.debug("Debug message");
-    log.warn("There's a problem!");
+    info!("Some {} info", "important");
+    debug!("Debug message");
+    warn!("There's a problem!");
     
     if true {
-        log.error("Panic!!!!")
+        error!("Panic!!!!")
     }
 }
