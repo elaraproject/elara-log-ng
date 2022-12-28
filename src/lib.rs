@@ -4,8 +4,7 @@
 // of which elara-log takes a lot of its design from
 
 #![allow(non_camel_case_types)]
-use chrono;
-use chrono::{Datelike, Timelike};
+use sys_time::DateTime;
 use std::fmt;
 use std::fs::OpenOptions;
 use std::io::Write;
@@ -53,7 +52,8 @@ impl Logger {
     fn _timestamp(&self) -> String {
         // let now = SystemTime::now();
         // let time = time::fmt("%Y-%m-%dT%H:%M:%S");
-        let now = chrono::offset::Local::now();
+        // note: UTC time not current time
+        let now = DateTime::now_utc();
         format!(
             "{}-{}-{} {}:{}:{}",
             now.year(),
@@ -157,7 +157,7 @@ impl Log for Logger {
             LogLevel::Warn => self.print(WARNING_TEXT, WARNING_COLOR, msg),
             LogLevel::Debug => self.print(DEBUG_TEXT, DEBUG_COLOR, msg),
             LogLevel::Error => self.print(ERROR_TEXT, ERROR_COLOR, msg)
-            
+
         }
     }
 }
