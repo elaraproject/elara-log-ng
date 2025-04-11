@@ -2,7 +2,7 @@
 name = "elara-log"
 description = "Project Elara's lightweight logging library for general-purpose use"
 license = "Unlicense"
-repository = "https://github.com/elaraproject/elara-log"
+repository = "https://github.com/elaraproject/elara-log-current"
 version = "0.1.0"
 edition = "2021"
 
