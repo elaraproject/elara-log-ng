@@ -1,3 +1,45 @@
+/*!
+This crate provides basic logging capabilities for the
+[Project Elara](https://github.com/elaraproject/) suite of
+open-source software libraries. It can also be used as
+a general-purpose lightweight logging library. It has
+just five logging macros:
+
+```rust
+debug!(some_debug_message)
+error!(some_error_message)
+info!(some_info_message)
+success!(some_success_message)
+warn!(some_success_message)
+```
+
+The macros accept the same format strings as `println!` which
+allows using string substitutions:
+
+```rust
+info!("The Answer to {} is {}.", 
+	  "the Ultimate Question of Life, the Universe, and Everything", 
+	  "42");
+```
+
+To use it, just import the crate and initialize the logger
+in your `main()` **before** calling any of the logging macros:
+
+```rust
+// required in all cases
+// (including if you're using
+// elara-log in a library)
+use elara_log::prelude::*;
+
+fn main() {
+	// for executables/applications only
+	// add this before calling any of
+	// the logging macros
+	Logger::new().init().unwrap();
+}
+```
+*/
+
 // Much thanks to https://github.com/takeshixx/python-tinylogs
 // and https://github.com/borntyping/rust-simple_logger
 // and https://github.com/rust-lang/log
