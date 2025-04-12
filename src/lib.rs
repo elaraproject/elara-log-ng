@@ -22,7 +22,16 @@ info!("The Answer to {} is {}.",
 	  "42");
 ```
 
-To use it, just import the crate and initialize the logger
+To use it in your project, install it with cargo by running:
+
+```sh
+# this crate is listed under a different
+# name to avoid a naming class with a previous
+# deprecated version of the same library
+cargo add elara-log-ng
+```
+
+Then import the crate and initialize the logger
 in your `main()` **before** calling any of the logging macros:
 
 ```rust

@@ -1,6 +1,8 @@
 # elara-log
 
-A minimalist and lightweight logger, developed for [Project Elara](https://github.com/elaraproject/)'s libraries and applications. See the [docs](https://docs.rs/elara-log) for a usage overview.
+> **Note:** This library is listed under the name `elara-log-ng` on [crates.io], to avoid a naming conflict with [a previous version](https://crates.io/crates/elara_log) of this library. We understand this can cause a lot of confusion, so please refer to the detailed instructions in our [docs](https://docs.rs/elara-log-ng) on how to use the library and install it properly.
+
+`elara-log` is a minimalist and lightweight logger, developed for [Project Elara](https://github.com/elaraproject/)'s suite of libraries and applications. See the [docs](https://docs.rs/elara-log-ng) for a usage overview.
 
 > `elara-log` is **public domain software** like the rest of [Project Elara](https://github.com/elaraproject/), meaning it is essentially **unlicensed software**, so you can use it for basically any project you want, _however_ you want, with or without attribution.
 
