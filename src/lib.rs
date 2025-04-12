@@ -24,9 +24,9 @@ info!("The Answer to {} is {}.",
 
 To use it in your project, install it with cargo by running:
 
-```sh
+```bash
 # this crate is listed under a different
-# name to avoid a naming class with a previous
+# name to avoid a naming clash with a previous
 # deprecated version of the same library
 cargo add elara-log-ng
 ```

@@ -3,7 +3,7 @@ name = "elara-log-ng" # this name avoids name conflicts on crates.io
 description = "Project Elara's lightweight logging library for general-purpose use"
 license = "Unlicense"
 repository = "https://github.com/elaraproject/elara-log-ng"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
