@@ -1,5 +1,9 @@
 # elara-log
 
+> :warning: **IMPORTANT:** Project Elara has switched over to the open-source forge [Codeberg](https://codeberg.org/). The Project Elara repositories have been moved to [this Codeberg page](https://codeberg.org/elaraproject/). **This GitHub repository is no longer maintained**.
+
+---
+
 > **Note:** This library is listed under the name `elara-log-ng` on [crates.io](https://crates.io/crates/elara-log-ng), to avoid a naming conflict with [a previous version](https://crates.io/crates/elara_log) of this library. We understand this can cause a lot of confusion, so please refer to the detailed instructions in our [docs](https://docs.rs/elara-log-ng) on how to use the library and install it properly.
 
 `elara-log` is a minimalist and lightweight logger, developed for [Project Elara](https://github.com/elaraproject/)'s suite of libraries and applications. See the [docs](https://docs.rs/elara-log-ng) for a usage overview.
